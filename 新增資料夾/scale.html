@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--[if IE 7]>    <html class="no-js ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="utf-8" />
+    <title>Charts | Wuxia Bootstrap Admin Template</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Walking Pixels | www.walkingpixels.com" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- jQuery Visualize Styles -->
+    <link rel='stylesheet' type='text/css' href='css/plugins/jquery.visualize.css' />
+    <!-- CSS styles -->
+    <link rel='stylesheet' type='text/css' href='css/wuxia-red.css' />
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="img/icons/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/icons/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/icons/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="img/icons/apple-touch-icon-57-precomposed.png" />
+    <!-- JS Libs -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="js/libs/jquery.js"><\/script>')
+    </script>
+    <script src="js/libs/modernizr.js"></script>
+    <script src="js/libs/selectivizr.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        // Navbar tooltips
+        $('.navbar [title]').tooltip({
+            placement: 'bottom'
+        });
+
+        // Content tooltips
+        $('[role=main] [title]').tooltip({
+            placement: 'top'
+        });
+
+        // Dropdowns
+        $('.dropdown-toggle').dropdown();
+
+        // Tabs
+        $('.demoTabs a').click(function(e) {
+            e.preventDefault();
+            $(this).tab('show');
+            $('table').trigger('visualizeRefresh');; // Refresh jQuery Visualize for hidden tabs
+        })
+
+    });
+    </script>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(["_setAccount", "UA-22557155-5"]);
+    _gaq.push(["_trackPageview"]);
+    (function() {
+        var b = document.createElement("script");
+        b.type = "text/javascript";
+        b.async = true;
+        b.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+        var a = document.getElementsByTagName("script")[0];
+        a.parentNode.insertBefore(b, a)
+    })();
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <!-- Main navigation bar -->
+    <header class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".user">
+                    <span class="icon-user"></span>
+                </button>
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".navigation">
+                    <span class="icon-chevron-down"></span>
+                </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- /Main navigation bar -->
+    <!-- Main content -->
+    <div class="container" role="main">
+        <!-- Breadcrumbs 
+        <ul class="breadcrumb">
+            <li><a href="#"><span class="icon-home"></span> Home</a></li>
+            <li><a href="#">Wuxia template</a></li>
+            <li class="active">Charts</li>
+        </ul>-->
+        <!-- Breadcrumbs -->
+        <!-- Secondary navigation -->
+        <div class="nav-secondary">
+            <nav>
+                <ul>
+                    <li><a class="wuxify-me" href="index.html"><span class="icon-signal"></span>今日現價</a></li>
+                    <li class="active"><a class="wuxify-me" href="scale.html"><span class="icon-calendar"></span>今日成交量</a></li>
+                    <li><a class="wuxify-me" href="vol.html"><span class="icon-picture"></span>ETF規模</a></li>
+                    <li><a class="wuxify-me" href="surplus.html"><span class="icon-file"></span>殖利率</a></li>
+                    <li><a class="wuxify-me" href="grid.html"><span class="icon-th"></span>ETF總覽</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- /Secondary navigation -->
+        <!-- Main data container -->
+        <div class="content">
+            <div class="page-container tab-content">
+                <!-- Tab #visualize -->
+                <div class="tab-pane active" id="visualize">
+                    <!-- Grid row -->
+                    <div class="row">
+                        <!-- Example jQuery Visualize -->
+                        <!-- Page grid cell (5 blocks) -->
+                        <!--<article class="span7">
+                            <h2>jQuery Visualize</h2>
+                            <p>今日現價</p>
+                        </article>-->
+                        <!-- /Page grid cell (5 blocks) -->
+                        <!-- Page grid cell (7 blocks) -->
+                        <h1><span class="icon-signal"></span>台股ETF今日成交量</h1>
+                        <span class='rg-dek'>資料來源:Yahoo!股市 最後更新時間:2024/05/31 15:00</span>
+                        </caption>
+                        <article class="span9">
+                            <canvas id="myChart" width="1600" height="1600"></canvas>
+                        </article>
+                    </div>
+                    <!-- /Grid row -->
+                </div>
+                <!-- Tab #visualize -->
+                <!-- Tab #flot -->
+                <div class="tab-pane" id="flot">
+                    <!-- Grid row -->
+                    <div class="row">
+                        <!-- Example jQuery Flot -->
+                        <!-- Page grid cell (5 blocks) -->
+                        <!-- /Page grid cell (5 blocks) -->
+                        <!-- Page grid cell (7 blocks) -->
+                        <article class="span7">
+                            <div id="demo-1" class="flot wide"></div>
+                        </article>
+                        <!-- /Page grid cell (7 blocks) -->
+                    </div>
+                    <!-- /Grid row -->
+                    <!-- Grid row -->
+                    <!-- /Grid row -->
+                </div>
+                <!-- /Tab #flot -->
+            </div>
+            <!-- /Tab content -->
+        </div>
+        <!-- /Main data container -->
+    </div>
+    <!-- /Main content -->
+    <!-- Main footer -->
+    <footer class="container">
+        <nav>
+            <ul>
+                <li>&copy; Copyright 2012. All rights reserved. 網頁內容:徐仁泰 2024.05</li>
+                <li><a href="">Documentation</a></li>
+                <li><a href="">Support</a></li>
+                <li><a href="">API</a></li>
+                <li><a href="">Blog</a></li>
+            </ul>
+        </nav>
+        <p>&copy; Copyright &copy; 2013.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+    </footer>
+    <!-- /Main footer -->
+    <!-- Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/plugins/waypoints.min.js"></script>
+    <script src="js/bootstrap/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap/bootstrap-tab.js"></script>
+    <script src="js/bootstrap/bootstrap-collapse.js"></script>
+    <!-- jQuery Visualize -->
+    <!--[if lte IE 8]>
+            <script language="javascript" type="text/javascript" src="js/plugins/visualize/excanvas.js"></script>
+        <![endif]-->
+    <script src="js/plugins/visualize/jquery.visualize.min.js"></script>
+    <script src="js/plugins/visualize/jquery.visualize.tooltip.min.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        $('table').each(function() {
+            var chartType = ''; // Set chart type
+            var chartWidth = $(this).parent().width() * 0.85; // Set chart width to 85% of its parent
+            var chartHeight = chartWidth; // Nice squares
+
+            if ($(this).attr('data-chart')) { // If exists chart-chart attribute
+                chartType = $(this).attr('data-chart'); // Get chart type from data-chart attribute
+            } else {
+                chartType = 'area'; // If data-chart attribute is not set, use 'area' type as default. Options: 'bar', 'area', 'pie', 'line'
+            }
+
+            if (chartType == 'line' || chartType == 'pie') {
+                $(this).hide().visualize({
+                    type: chartType,
+                    width: chartWidth,
+                    height: chartHeight,
+                    colors: ['#389abe', '#fa9300', '#6b9b20', '#d43f3f', '#8960a7', '#33363b', '#b29559', '#6bd5b1', '#66c9ee'],
+                    lineDots: 'double',
+                    interaction: true,
+                    multiHover: 5,
+                    tooltip: true,
+                    tooltiphtml: function(data) {
+                        var html = '';
+                        for (var i = 0; i < data.point.length; i++) {
+                            html += '<p class="tooltip chart_tooltip"><div class="tooltip-inner"><strong>' + data.point[i].value + '</strong> ' + data.point[i].yLabels[0] + '</div></p>';
+                        }
+                        return html;
+                    }
+                });
+            } else {
+                $(this).hide().visualize({
+                    type: chartType,
+                    width: chartWidth,
+                    height: chartHeight,
+                    colors: ['#389abe', '#fa9300', '#6b9b20', '#d43f3f', '#8960a7', '#33363b', '#b29559', '#6bd5b1', '#66c9ee'],
+                });
+            }
+        });
+
+    });
+    </script>
+    <!-- jQuery Flot Charts -->
+    <!--[if lte IE 8]>
+            <script language="javascript" type="text/javascript" src="js/plugins/flot/excanvas.min.js"></script>
+        <![endif]-->
+    <script src="js/plugins/flot/jquery.flot.js"></script>
+    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        // Demo #2
+        var d1 = [];
+        for (var i = 0; i < 14; i += 0.5)
+            d1.push([i, Math.sin(i)]);
+
+        var d2 = [
+            [0, 3],
+            [4, 8],
+            [8, 5],
+            [9, 13]
+        ];
+
+        var d3 = [];
+        for (var i = 0; i < 14; i += 0.5)
+            d3.push([i, Math.cos(i)]);
+
+        var d4 = [];
+        for (var i = 0; i < 14; i += 0.1)
+            d4.push([i, Math.sqrt(i * 10)]);
+
+        var d5 = [];
+        for (var i = 0; i < 14; i += 0.5)
+            d5.push([i, Math.sqrt(i)]);
+
+        var d6 = [];
+        for (var i = 0; i < 14; i += 0.5 + Math.random())
+            d6.push([i, Math.sqrt(2 * i + Math.sin(i) + 5)]);
+
+        $.plot($("#demo-2"), [{
+                data: d1,
+                lines: { show: true, fill: true }
+            },
+            {
+                data: d2,
+                bars: { show: true }
+            },
+            {
+                data: d3,
+                points: { show: true }
+            },
+            {
+                data: d4,
+                lines: { show: true }
+            },
+            {
+                data: d5,
+                lines: { show: true },
+                points: { show: true }
+            },
+            {
+                data: d6,
+                lines: { show: true, steps: true }
+            }
+        ], {
+            grid: { backgroundColor: '#ffffff' }
+        });
+
+        // Demo #3
+        var data = [];
+        var series = Math.floor(Math.random() * 6) + 3;
+        for (var i = 0; i < series; i++) {
+            data[i] = { label: "Series" + (i + 1), data: Math.floor(Math.random() * 100) + 1 }
+        }
+
+        $.plot($("#demo-3"), data, {
+            series: {
+                pie: {
+                    innerRadius: 0.5,
+                    show: true
+                }
+            },
+            grid: { backgroundColor: '#ffffff' }
+        });
+
+        // Demo #4
+        var sin = [],
+            cos = [];
+        for (var i = 0; i < 14; i += 0.5) {
+            sin.push([i, Math.sin(i)]);
+            cos.push([i, Math.cos(i)]);
+        }
+
+        var plot = $.plot($("#demo-4"),
+            [{ data: sin, label: "sin(x)" }, { data: cos, label: "cos(x)" }], {
+                series: {
+                    lines: { show: true },
+                    points: { show: true }
+                },
+                grid: { hoverable: true, clickable: true, backgroundColor: '#ffffff' },
+                yaxis: { min: -1.2, max: 1.2 }
+            });
+
+        function showTooltip(x, y, contents) {
+            $('<div id="tooltip"><div class="tooltip-inner">' + contents + '</div></div>').css({
+                position: 'absolute',
+                display: 'none',
+                top: y + 10,
+                left: x + 10
+            }).appendTo("body").fadeIn(200);
+        }
+
+        var previousPoint = null;
+        $("#demo-4").bind("plothover", function(event, pos, item) {
+            $("#x").text(pos.x.toFixed(2));
+            $("#y").text(pos.y.toFixed(2));
+
+            if (item) {
+                if (previousPoint != item.dataIndex) {
+                    previousPoint = item.dataIndex;
+
+                    $("#tooltip").remove();
+                    var x = item.datapoint[0].toFixed(2),
+                        y = item.datapoint[1].toFixed(2);
+
+                    showTooltip(item.pageX, item.pageY,
+                        item.series.label + " of " + x + " = " + y);
+                }
+            } else {
+                $("#tooltip").remove();
+                previousPoint = null;
+            }
+        });
+
+        $("#demo-4").bind("plotclick", function(event, pos, item) {
+            if (item) {
+                $("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
+                plot.highlight(item.series, item.datapoint);
+            }
+        });
+
+        // Demo #1
+        // we use an inline data source in the example, usually data would be fetched from a server
+        var data = [],
+            totalPoints = 300;
+
+        function getRandomData() {
+            if (data.length > 0)
+                data = data.slice(1);
+
+            // do a random walk
+            while (data.length < totalPoints) {
+                var prev = data.length > 0 ? data[data.length - 1] : 50;
+                var y = prev + Math.random() * 10 - 5;
+                if (y < 0)
+                    y = 0;
+                if (y > 100)
+                    y = 100;
+                data.push(y);
+            }
+
+            // zip the generated y values with the x values
+            var res = [];
+            for (var i = 0; i < data.length; ++i)
+                res.push([i, data[i]])
+            return res;
+        }
+
+        // setup control widget
+        var updateInterval = 30;
+        $("#updateInterval").val(updateInterval).change(function() {
+            var v = $(this).val();
+            if (v && !isNaN(+v)) {
+                updateInterval = +v;
+                if (updateInterval < 1)
+                    updateInterval = 1;
+                if (updateInterval > 2000)
+                    updateInterval = 2000;
+                $(this).val("" + updateInterval);
+            }
+        });
+
+        // setup plot
+        var options = {
+            series: { shadowSize: 0, color: '#389abe' }, // drawing is faster without shadows
+            yaxis: { min: 0, max: 100 },
+            xaxis: { show: false },
+            grid: { backgroundColor: '#ffffff' }
+        };
+        var plot = $.plot($("#demo-1"), [getRandomData()], options);
+
+        function update() {
+            plot.setData([getRandomData()]);
+            // since the axes don't change, we don't need to call plot.setupGrid()
+            plot.draw();
+            setTimeout(update, updateInterval);
+        }
+
+        update();
+
+    });
+
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['復華台灣科技優息', '元大台灣價值高息', '群益台灣精選高息', '元大台灣50反1', '統一台灣高息動能', '國泰永續高股息', '群益科技高息成長', '大華優利高填息30', '元大高股息', '中信關鍵半導體', '野村趨勢動能高息', '凱基優選高股息30', '台新永續高息中小', '群益半導體收益', '國泰台灣5G+', '元大台灣50', '中信成長高股息', '元大台灣高息低波', '富邦台50', '國泰臺灣加權反1', '野村臺灣新科技50', '富邦臺灣加權反1', '富邦特選高股息30', '群益台ESG低碳50', '國泰台灣領袖50', '兆豐電子高息等權', '元大台灣50正2', '富邦臺灣中小', '永豐優息存股', '富邦台灣半導體', '永豐ESG低碳高息', '富邦臺灣加權正2', '富邦公司治理', '兆豐永續高息等權', 'FT臺灣Smart', '兆豐藍籌30', '永豐台灣ESG', '群益臺灣加權反1', '中信上櫃ESG30', '元大臺灣ESG永續', '新光臺灣半導體30', '復華富時高息低波', '兆豐龍頭等權重', '中信綠能及電動車', '中信臺灣智慧50', '中信小資高價30', '永豐智能車供應鏈', '富邦科技', '第一金工業30', '國泰股利精選30', '元大MSCI金融', '群益臺灣加權正2', '富邦臺灣優質高息', '國泰臺韓科技', '兆豐台灣晶圓製造', '元大中型100', '國泰臺灣加權正2', '元大富櫃50', '元大電子', '富邦摩台', '元大MSCI台灣', '永豐臺灣加權'],
+            datasets: [{
+                label: '今日成交量',
+                data: [92814, 91989, 77358, 68830, 56543, 47807, 47197, 16001, 14881, 9962, 9478, 8046, 7404, 7295, 7066, 6751, 6303, 6061, 5469, 5433, 5271, 4947, 4814, 4691, 4095, 3484, 3157, 2798, 2755, 2440, 2357, 2211, 2053, 1766, 1710, 1504, 1488, 1455, 1275, 1273, 1232, 1199, 1079, 949, 762, 732, 727, 588, 557, 545, 325, 273, 212, 127, 115, 39, 33, 24, 17, 16, 7, 3],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    </script>
+    <div style="display:none">
+        <script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script>
+    </div>
+</body>
+
+</html>
